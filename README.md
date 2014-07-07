@@ -7,5 +7,6 @@ language-tools-bg
 * bg.bozho.ikratko.other.Anagram - търсене на анаграми на дума (алгоритъмът не е оптимален). Може да го пробвате на http://i-kratko.com/anagrams
 * bg.bozho.ikratko.other.ParonymService - търсене на пароними на дума (алгоритъмът използва левенщайново разстояние, но е бавен) Може да го пробвате на http://i-kratko.com/paronyms
 * bg.bozho.ikratko.other.RhymeService - търсене на рими на дадена дума. Може да го пробвате на http://i-kratko.com/rhymes
+* bg.bozho.ikratko.other.Echo - генерира файл съдържащ всяка дума, и на кои думи тя е "ехо" - т.е. кои думи завършват на нея.
 
 TODO: документиране, оптимизиране
