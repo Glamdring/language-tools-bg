@@ -1,0 +1,464 @@
+
+SFX A Y 8
+SFX A   0         и         .
+SFX A   0         ите       .
+
+SFX B Y 3
+SFX B   0         и         .
+SFX B   0         ите       .
+
+SFX C Y 4
+SFX C   0         и         .
+SFX C   0         ите       .
+
+SFX D Y 4
+SFX D   0         ове       .
+SFX D   0         овете     .
+
+SFX E Y 5
+SFX E   0         и         .
+SFX E   0         ите       .
+
+SFX F Y 5
+SFX F   0         и         .
+SFX F   0         ите       .
+
+SFX G Y 5
+SFX G   0         и         .
+SFX G   0         ите       .
+
+SFX H Y 4
+SFX H   0         и         .
+SFX H   0         ите       .
+
+SFX I Y 0
+
+SFX J Y 3
+SFX J   0         та        .
+SFX J   0         тата      .
+
+SFX K Y 25
+SFX K   а         и         .
+SFX K   а         ите       .
+SFX K   г         зи        .
+SFX K   г         зите      .
+SFX K   ен        ни        .
+SFX K   ен        ните      .
+SFX K   и         ите       .
+SFX K   я         и         .
+SFX K   я         ите       .
+
+SFX L Y 133
+SFX L   а         и         .
+SFX L   а         ите       .
+SFX L   ен        йни       .
+SFX L   ен        йните     .
+SFX L   ец        ци        .
+SFX L   ец        ците      .
+SFX L   е         я         .
+SFX L   е         ята       .
+SFX L   и         ите       .
+SFX L   о         а         .
+SFX L   о         ата       .
+SFX L   ъв        ви        .
+SFX L   ъв        вите      .
+SFX L   ъг        ги        .
+SFX L   ъг        гите      .
+SFX L   ък        ки        .
+SFX L   ък        ките      .
+SFX L   ъл        ли        .
+SFX L   ъл        лите      .
+SFX L   ър        ри        .
+SFX L   ър        рите      .
+SFX L   ъш        ши        .
+SFX L   ъш        шите      .
+SFX L   яв        еви       .
+SFX L   яв        евите     .
+SFX L   як        еки       .
+SFX L   як        еките     .
+SFX L   ял        ели       .
+SFX L   ял        елите     .
+SFX L   ям        еми       .
+SFX L   ям        емите     .
+SFX L   ян        ени       .
+SFX L   ян        ените     .
+SFX L   яп        епи       .
+SFX L   яп        епите     .
+SFX L   ят        ети       .
+SFX L   ят        етите     .
+
+SFX M Y 29
+SFX M   е         а         .
+SFX M   е         ата       .
+SFX M   ец        йци       .
+SFX M   ец        йците     .
+SFX M   ин        и         .
+SFX M   ин        ите       .
+SFX M   й         и         .
+SFX M   й         ите       .
+SFX M   о         и         .
+SFX M   о         ите       .
+SFX M   ъм        ми        .
+SFX M   ъм        мите      .
+SFX M   я         и         .
+SFX M   я         ите       .
+
+SFX N Y 20
+SFX N   ел        ли        .
+SFX N   ел        лите      .
+SFX N   ец        ци        .
+SFX N   ец        ците      .
+SFX N   ъл        ли        .
+SFX N   ъл        лите      .
+SFX N   ъм        ми        .
+SFX N   ъм        мите      .
+SFX N   ър        ри        .
+SFX N   ър        рите      .
+
+SFX O Y 18
+SFX O   е         ия        .
+SFX O   е         ията      .
+SFX O   й         и         .
+SFX O   й         ите       .
+SFX O   к         ци        .
+SFX O   к         ците      .
+SFX O   о         овци      .
+SFX O   о         овците    .
+SFX O   х         си        .
+SFX O   х         сите      .
+
+SFX P Y 104
+SFX P   а         ат        .
+SFX P   а         ели       .
+SFX P   а         елите     .
+SFX P   а         ени       .
+SFX P   а         ените     .
+SFX P   а         еха       .
+SFX P   а         ещи       .
+SFX P   а         ещите     .
+SFX P   а         илата     .
+SFX P   а         или       .
+SFX P   а         илите     .
+SFX P   а         иха       .
+SFX P   я         ели       .
+SFX P   я         елите     .
+SFX P   я         ени       .
+SFX P   я         ените     .
+SFX P   я         еха       .
+SFX P   я         ещи       .
+SFX P   я         ещите     .
+SFX P   я         или       .
+SFX P   я         илите     .
+SFX P   я         иха       .
+SFX P   я         ят        .
+
+SFX Q Y 93
+SFX Q   а         али       .
+SFX Q   а         алите     .
+SFX Q   а         ати       .
+SFX Q   а         атите     .
+SFX Q   а         аха       .
+SFX Q   а         ели       .
+SFX Q   а         елите     .
+SFX Q   а         еха       .
+SFX Q   я         ели       .
+SFX Q   я         елите     .
+SFX Q   я         ени       .
+SFX Q   я         ените     .
+SFX Q   я         еше       .
+SFX Q   я         или       .
+SFX Q   я         илите     .
+SFX Q   я         иха       .
+SFX Q   я         ят        .
+SFX Q   я         яха       .
+SFX Q   я         ящи       .
+SFX Q   я         ящите     .
+
+SFX R Y 160
+SFX R   ера       ерат      .
+SFX R   ера       ерели     .
+SFX R   ера       ерелите   .
+SFX R   ера       ерещи     .
+SFX R   ера       ерещите   .
+SFX R   ера       еряха     .
+SFX R   ера       рали      .
+SFX R   ера       ралите    .
+SFX R   ера       рани      .
+SFX R   ера       раните    .
+SFX R   ера       раха      .
+SFX R   ея        еели      .
+SFX R   ея        еелите    .
+SFX R   ея        ееха      .
+SFX R   ея        еещи      .
+SFX R   ея        еещите    .
+SFX R   ея        ели       .
+SFX R   ея        елите     .
+SFX R   ея        ени       .
+SFX R   ея        ените     .
+SFX R   ея        яха       .
+SFX R   ша        сали      .
+SFX R   ша        салите    .
+SFX R   ша        сани      .
+SFX R   ша        саните    .
+SFX R   ша        саха      .
+SFX R   ша        шат       .
+SFX R   ша        шели      .
+SFX R   ша        шелите    .
+SFX R   ша        шеха      .
+SFX R   ша        шещи      .
+SFX R   ша        шещите    .
+
+SFX S Y 81
+SFX S   ам        айте      .
+SFX S   ам        али       .
+SFX S   ам        алите     .
+SFX S   ам        аме       .
+SFX S   ам        ани       .
+SFX S   ам        аните     .
+SFX S   ам        ат        .
+SFX S   ам        ате       .
+SFX S   ам        аха       .
+SFX S   ам        ахме      .
+SFX S   ам        ахте      .
+SFX S   ам        ащи       .
+SFX S   ам        ащите     .
+SFX S   я         ели       .
+SFX S   я         елите     .
+SFX S   я         ени       .
+SFX S   я         ените     .
+SFX S   я         ете       .
+SFX S   я         им        .
+SFX S   я         ите       .
+SFX S   я         ят        .
+SFX S   я         яха       .
+SFX S   я         яхме      .
+SFX S   я         яхте      .
+SFX S   я         ящи       .
+SFX S   я         ящите     .
+
+SFX T Y 94
+SFX T   я         ели       .
+SFX T   я         елите     .
+SFX T   я         ем        .
+SFX T   я         ете       .
+SFX T   я         еха       .
+SFX T   я         ехме      .
+SFX T   я         ехте      .
+SFX T   я         ещи       .
+SFX T   я         ещите     .
+SFX T   я         йте       .
+SFX T   я         ли        .
+SFX T   я         лите      .
+SFX T   ям        яйте      .
+SFX T   ям        яли       .
+SFX T   ям        ялите     .
+SFX T   ям        яни       .
+SFX T   ям        яните     .
+SFX T   ям        яха       .
+SFX T   ям        ящи       .
+SFX T   ям        ящите     .
+SFX T   я         ти        .
+SFX T   я         тите      .
+SFX T   я         ха        .
+SFX T   я         ят        .
+
+SFX U Y 184
+SFX U   да        дат       .
+SFX U   да        дели      .
+SFX U   да        делите    .
+SFX U   да        дени      .
+SFX U   да        дените    .
+SFX U   да        доха      .
+SFX U   да        дяха      .
+SFX U   да        дящи      .
+SFX U   да        дящите    .
+SFX U   да        ли        .
+SFX U   да        лите      .
+SFX U   та        ли        .
+SFX U   та        лите      .
+SFX U   та        тат       .
+SFX U   та        тели      .
+SFX U   та        телите    .
+SFX U   та        тени      .
+SFX U   та        тените    .
+SFX U   та        тения     .
+SFX U   та        теният    .
+SFX U   та        тоха      .
+SFX U   та        тяха      .
+SFX U   та        тящи      .
+SFX U   та        тящите    .
+SFX U   я         ели       .
+SFX U   я         елите     .
+SFX U   я         еха       .
+SFX U   я         ещи       .
+SFX U   я         ещите     .
+SFX U   я         ли        .
+SFX U   я         лите      .
+SFX U   я         ни        .
+SFX U   я         ните      .
+SFX U   я         ха        .
+SFX U   я         ят        .
+SFX U   дя        дят       .
+SFX U   дя        дяха      .
+SFX U   дя        деха      .
+SFX U   дя        деше      .
+
+SFX V Y 96
+SFX V   да        шли       .
+SFX V   да        шлите     .
+SFX V   га        гат       .
+SFX V   га        гли       .
+SFX V   га        глите     .
+SFX V   га        жаха      .
+SFX V   га        жели      .
+SFX V   га        желите    .
+SFX V   га        жеха      .
+SFX V   га        жещи      .
+SFX V   га        жещите    .
+SFX V   а         али       .
+SFX V   а         алите     .
+SFX V   а         ат        .
+SFX V   а         аха       .
+SFX V   а         ащи       .
+SFX V   а         ащите     .
+SFX V   а         ели       .
+SFX V   а         елите     .
+SFX V   а         еха       .
+SFX V   я         ели       .
+SFX V   я         елите     .
+SFX V   я         ени       .
+SFX V   я         ените     .
+SFX V   я         или       .
+SFX V   я         илите     .
+SFX V   я         иха       .
+SFX V   я         ят        .
+SFX V   я         ящи       .
+SFX V   я         ящите     .
+
+SFX W Y 97
+SFX W   ея        еели      .
+SFX W   ея        еелите    .
+SFX W   ея        ееха      .
+SFX W   ея        еещи      .
+SFX W   ея        еещите    .
+SFX W   ея        ели       .
+SFX W   ея        елите     .
+SFX W   ея        ети       .
+SFX W   ея        етите     .
+SFX W   ея        еят       .
+SFX W   ея        ях        .
+SFX W   ея        яха       .
+SFX W   жа        жат       .
+SFX W   жа        жели      .
+SFX W   жа        желите    .
+SFX W   жа        жеха      .
+SFX W   жа        зали      .
+SFX W   жа        залите    .
+SFX W   жа        зани      .
+SFX W   жа        заните    .
+SFX W   жа        заха      .
+
+SFX X Y 148
+SFX X   а         али       .
+SFX X   а         алите     .
+SFX X   а         ани       .
+SFX X   а         аните     .
+SFX X   а         ат        .
+SFX X   а         аха       .
+SFX X   а         ели       .
+SFX X   а         елите     .
+SFX X   а         ещи       .
+SFX X   а         ещите     .
+SFX X   а         яха       .
+SFX X   м         дат       .
+SFX X   м         дели      .
+SFX X   м         делите    .
+SFX X   м         дени      .
+SFX X   м         дените    .
+SFX X   м         доха      .
+SFX X   м         дяха      .
+SFX X   м         ли        .
+SFX X   м         лите      .
+SFX X   я         али       .
+SFX X   я         алите     .
+SFX X   я         ани       .
+SFX X   я         аните     .
+SFX X   я         аха       .
+SFX X   я         ели       .
+SFX X   я         елите     .
+SFX X   я         еха       .
+SFX X   я         ещи       .
+SFX X   я         ещите     .
+SFX X   я         ят        .
+
+SFX Y Y 200
+SFX Y   аса       асат      .
+SFX Y   аса       асели     .
+SFX Y   аса       аселите   .
+SFX Y   аса       асени     .
+SFX Y   аса       асените   .
+SFX Y   аса       асли      .
+SFX Y   аса       аслите    .
+SFX Y   аса       асоха     .
+SFX Y   аса       асяха     .
+SFX Y   аса       асящи     .
+SFX Y   аса       асящите   .
+SFX Y   еса       есат      .
+SFX Y   еса       есели     .
+SFX Y   еса       еселите   .
+SFX Y   еса       есени     .
+SFX Y   еса       есените   .
+SFX Y   еса       если      .
+SFX Y   еса       еслите    .
+SFX Y   еса       есоха     .
+SFX Y   еса       есяха     .
+SFX Y   еса       есящи     .
+SFX Y   еса       есящите   .
+SFX Y   ка        кат       .
+SFX Y   ка        кли       .
+SFX Y   ка        клите     .
+SFX Y   ка        коха      .
+SFX Y   ка        чащи      .
+SFX Y   ка        чащите    .
+SFX Y   ка        чели      .
+SFX Y   ка        челите    .
+SFX Y   ка        чени      .
+SFX Y   ка        чените    .
+SFX Y   ка        чеха      .
+SFX Y   ча        кали      .
+SFX Y   ча        калите    .
+SFX Y   ча        каха      .
+SFX Y   ча        чат       .
+SFX Y   ча        чели      .
+SFX Y   ча        челите    .
+SFX Y   ча        чеха      .
+SFX Y   ча        чещи      .
+SFX Y   ча        чещите    .
+
+SFX Z Y 127
+SFX Z   а         ат        .
+SFX Z   а         ели       .
+SFX Z   а         елите     .
+SFX Z   а         ени       .
+SFX Z   а         ените     .
+SFX Z   а         яха       .
+SFX Z   м         дат       .
+SFX Z   м         дели      .
+SFX Z   м         делите    .
+SFX Z   м         дени      .
+SFX Z   м         дените    .
+SFX Z   м         дещи      .
+SFX Z   м         дещите    .
+SFX Z   м         доха      .
+SFX Z   м         дяха      .
+SFX Z   м         ли        .
+SFX Z   м         лите      .
+SFX Z   я         ели       .
+SFX Z   я         елите     .
+SFX Z   я         еха       .
+SFX Z   я         ещи       .
+SFX Z   я         ещите     .
+SFX Z   я         яли       .
+SFX Z   я         ялите     .
+SFX Z   я         ят        .
+SFX Z   я         яха       .
