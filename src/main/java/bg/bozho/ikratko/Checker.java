@@ -36,16 +36,16 @@ public class Checker {
 
     private static boolean initialized = false;
 
-    private static Map<String, Multimap<String, String>> inflectionClasses = Maps.newHashMap();
-    private static Map<String, Multimap<String, String>> pluralInflectionClasses = Maps.newHashMap();
+    public static Map<String, Multimap<String, String>> inflectionClasses = Maps.newHashMap();
+    public static Map<String, Multimap<String, String>> pluralInflectionClasses = Maps.newHashMap();
     private static final String POTENTIAL_MISTAKE_REGEX = "(\\p{L}*[аъоуеиюя][ий]\\p{L}*)";
     private static final String POTENTIAL_MISTAKE_REGEX_I = "(\\p{L}*[аъоуеиюя])и(\\p{L}*)";
     private static final String POTENTIAL_MISTAKE_REGEX_Y = "(\\p{L}*[аъоуеиюя])й(\\p{L}*)";
 
     private static final String END_OF_SENTENCE = "[\\.!?]";
 
-    private static final List<String> toBeFormsSg = Arrays.asList("съм", "си", "е", "бях", "беше", "бъда", "бъдеш", "бъде");
-    private static final List<String> toBeFormsPl = Arrays.asList("сме", "сте", "са", "бяхме", "бяхте", "бяха", "бъдат");
+    public static final List<String> toBeFormsSg = Arrays.asList("съм", "си", "е", "бях", "беше", "бъда", "бъдеш", "бъде");
+    public static final List<String> toBeFormsPl = Arrays.asList("сме", "сте", "са", "бяхме", "бяхте", "бяха", "бъдат");
 
     private static final Set<String> pronounsSgSet = Sets.newHashSet("някой", "никой", "кой", "чий");
     private static final Set<String> pronounsPlSet = Sets.newHashSet("някои", "никои", "кои", "чии");
@@ -54,7 +54,7 @@ public class Checker {
 
     private static final Set<String> pluralIdentfiers = Sets.newHashSet("няколко", "николко", "много", "малко", "доста", "брой", "безброй", "тези", "онези");
     private static final Set<String> singularIdentfiers = Sets.newHashSet("един", "този", "онзи");
-    private static final Set<String> verbClasses = Sets.newHashSet("P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+    public static final Set<String> verbClasses = Sets.newHashSet("P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 
     @PostConstruct
     public synchronized void initialize() {
