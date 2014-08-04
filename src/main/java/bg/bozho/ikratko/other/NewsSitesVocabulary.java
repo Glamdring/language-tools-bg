@@ -15,6 +15,7 @@ import org.ardverk.collection.StringKeyAnalyzer;
 import bg.bozho.ikratko.Checker;
 import static bg.bozho.ikratko.Checker.*;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
@@ -24,21 +25,21 @@ import com.sun.syndication.io.SyndFeedInput;
 
 public class NewsSitesVocabulary {
 
-    private static Map<String, String> feeds = Maps.newHashMap();
+    private static Map<String, String> feeds = Maps.newLinkedHashMap();
     static {
-        feeds.put("Дневник", "http://www.dnevnik.bg/rss/");
-        feeds.put("Блиц", "http://www.blitz.bg/rss.php?news");
-        feeds.put("Монитор", "http://monitor.bg/rss?id=1");
-        feeds.put("Сега", "http://www.segabg.com/rss20.xml");
         feeds.put("24 часа", "http://www.24chasa.bg/Rss.asp");
+        feeds.put("Блиц", "http://www.blitz.bg/rss.php?news");
+        feeds.put("БиНюз", "http://www.bnews.bg/rss.php");
+        feeds.put("Вести", "http://www.vesti.bg/rss");
+        feeds.put("Дарик нюз", "http://dariknews.bg/rss.php");
+        feeds.put("Дневник", "http://www.dnevnik.bg/rss/");
+        feeds.put("Днес.бг", "http://rss.dnes.bg/c/33162/f/539026/index.rss?today");
+        feeds.put("Капитал", "http://www.capital.bg/rss/");
+        feeds.put("Монитор", "http://monitor.bg/rss?id=1");
+        feeds.put("ПИК", "http://pik.bg/rss/index/2");
+        feeds.put("Сега", "http://www.segabg.com/rss20.xml");
         feeds.put("Стандарт", "http://www.standartnews.com/rss.php?p=1");
         feeds.put("Труд", "http://www.trud.bg/rss.asp");
-        feeds.put("БиНюз", "http://www.bnews.bg/rss.php");
-        feeds.put("Днес.бг", "http://rss.dnes.bg/c/33162/f/539026/index.rss?today");
-        feeds.put("Дарик нюз", "http://dariknews.bg/rss.php");
-        feeds.put("ПИК", "http://pik.bg/rss/index/2");
-        feeds.put("Вести", "http://www.vesti.bg/rss");
-        feeds.put("Капитал", "http://www.capital.bg/rss/");
         feeds.put("Хроникъл", "http://chronicle.bg/feed/");
     }
 
@@ -46,33 +47,62 @@ public class NewsSitesVocabulary {
     public static void main(String[] args) throws Exception {
         new Checker().initialize();
         PatriciaTrie<String, String> forms = getFormsDictionaryReferencingBaseForm();
-        for (String site : feeds.keySet()) {
-            try {
-                String url = feeds.get(site);
-                StringBuilder text = new StringBuilder();
-                SyndFeedInput input = new SyndFeedInput();
-                int entriesCount = 0;
-                try (InputStream in = new URL(url).openStream()) {
-                    SyndFeed feed = input.build(new InputStreamReader(in));
-                    List<SyndEntry> entries = feed.getEntries();
-                    entriesCount = entries.size();
-                    for (SyndEntry entry : entries) {
-                        text.append(" " + entry.getDescription().getValue());
-                    }
+        System.out.println(StringUtils.rightPad("Издание", 30) + "думи |корени| к/д  | статии");
+        Set<String> visited = Sets.newHashSet();
+
+        Map<String, List<String>> accumulatedWords = Maps.newLinkedHashMap();
+        Map<String, Integer> entriesCounts = Maps.newHashMap();
+
+        for (int i = 0; i < 10; i++) {
+            for (String site : feeds.keySet()) {
+                if (!accumulatedWords.containsKey(site)) {
+                    accumulatedWords.put(site, Lists.<String>newArrayList());
+                    entriesCounts.put(site, 0);
                 }
-                List<String> words = Arrays.asList(text.toString().split("[^\\pL\\pM\\p{Nd}\\p{Nl}\\p{Pc}[\\p{InEnclosedAlphanumerics}&&\\p{So}]]+"));
-                Set<String> roots = Sets.newHashSet();
-                double totalWords = 0;
-                for (String word : words) {
-                    if (StringUtils.isNotBlank(word) && Character.isLowerCase(word.charAt(0)) && Checker.formsDictionary.containsKey(word)) {
-                        totalWords ++;
-                        roots.add(forms.get(word));
+
+                try {
+                    String url = feeds.get(site);
+                    StringBuilder text = new StringBuilder();
+                    SyndFeedInput input = new SyndFeedInput();
+                    int entriesCount = 0;
+                    try (InputStream in = new URL(url).openStream()) {
+                        SyndFeed feed = input.build(new InputStreamReader(in));
+                        List<SyndEntry> entries = feed.getEntries();
+                        for (SyndEntry entry : entries) {
+                            if (visited.contains(entry.getUri())) {
+                                continue;
+                            }
+                            visited.add(entry.getUri());
+                            entriesCount ++;
+                            // adding the whole text to the accumulated text, stripping the last unfinished word
+                            text.append(" " + entry.getDescription().getValue().replaceAll(" [\\\\pL\\\\pM\\\\p{Nd}\\\\p{Nl}\\\\p{Pc}[\\\\p{InEnclosedAlphanumerics}&&\\\\p{So}]]...", ""));
+                        }
                     }
+                    List<String> words = Arrays.asList(text.toString().split("[^\\pL\\pM\\p{Nd}\\p{Nl}\\p{Pc}[\\p{InEnclosedAlphanumerics}&&\\p{So}]]+"));
+                    accumulatedWords.get(site).addAll(words);
+                    entriesCounts.put(site, entriesCounts.get(site) + entriesCount);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
-                System.out.println(site + ": " + String.format("%.2f", roots.size() / totalWords) + " | " + (int) totalWords + " | " + roots.size() + " | " + entriesCount);
-            } catch (Exception ex) {
-                ex.printStackTrace();
             }
+            Thread.sleep(30 * 60 * 1000);
+        }
+
+        for (String site : accumulatedWords.keySet()) {
+            List<String> words = accumulatedWords.get(site);
+            Set<String> roots = Sets.newHashSet();
+            double totalWords = 0;
+            for (String word : words) {
+                if (StringUtils.isNotBlank(word) && Character.isLowerCase(word.charAt(0)) && Checker.formsDictionary.containsKey(word)) {
+                    totalWords ++;
+                    roots.add(forms.get(word));
+                }
+            }
+            System.out.println(StringUtils.rightPad(site, 30)
+                    + StringUtils.rightPad(String.valueOf((int) totalWords), 4) + " | "
+                    + StringUtils.rightPad(String.valueOf(roots.size()), 4) + " | "
+                    + String.format("%.2f", roots.size() / totalWords) + " | "
+                    + entriesCounts.get(site));
         }
     }
 
