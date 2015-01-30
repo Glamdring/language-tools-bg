@@ -21,9 +21,9 @@
             <version>r09</version>
         </dependency>
         <dependency>
-            <groupId>commons-collections</groupId>
-            <artifactId>commons-collections</artifactId>
-            <version>3.2.1</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -72,13 +72,6 @@
             <artifactId>appengine-api-1.0-sdk</artifactId>
             <version>1.6.4</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>patricia-trie</groupId>
-            <artifactId>patricia-trie</artifactId>
-            <version>0.6</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/patricia-trie-0.6.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>rome</groupId>

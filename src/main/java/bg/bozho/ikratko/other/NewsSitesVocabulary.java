@@ -9,8 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
-import org.ardverk.collection.PatriciaTrie;
-import org.ardverk.collection.StringKeyAnalyzer;
+import org.apache.commons.collections4.trie.PatriciaTrie;
 
 import bg.bozho.ikratko.Checker;
 import static bg.bozho.ikratko.Checker.*;
@@ -46,7 +45,7 @@ public class NewsSitesVocabulary {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) throws Exception {
         new Checker().initialize();
-        PatriciaTrie<String, String> forms = getFormsDictionaryReferencingBaseForm();
+        PatriciaTrie<String> forms = getFormsDictionaryReferencingBaseForm();
         System.out.println(StringUtils.rightPad("Издание", 30) + "думи |корени| к/д  | статии");
         Set<String> visited = Sets.newHashSet();
 
@@ -107,8 +106,8 @@ public class NewsSitesVocabulary {
     }
 
 
-    public static PatriciaTrie<String, String> getFormsDictionaryReferencingBaseForm() {
-        PatriciaTrie<String, String> trie = new PatriciaTrie<String, String>(StringKeyAnalyzer.CHAR);
+    public static PatriciaTrie<String> getFormsDictionaryReferencingBaseForm() {
+        PatriciaTrie<String> trie = new PatriciaTrie<>();
         load();
         for (Map.Entry<String, Set<String>> word : dictionary.entrySet()) {
             String baseForm = word.getKey();
