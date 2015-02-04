@@ -6,9 +6,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
-import org.ardverk.collection.PatriciaTrie;
-import org.ardverk.collection.StringKeyAnalyzer;
-import org.ardverk.collection.Trie;
+import org.apache.commons.collections4.Trie;
+import org.apache.commons.collections4.trie.PatriciaTrie;
 
 import com.google.common.collect.Sets;
 
@@ -21,7 +20,7 @@ public class Echo {
         Checker c = new Checker();
         c.initialize();
 
-        Trie<String, InflectedFormType>reverse = new PatriciaTrie<String, InflectedFormType>(StringKeyAnalyzer.CHAR);
+        Trie<String, InflectedFormType> reverse = new PatriciaTrie<>();
         for (Entry<String, Checker.InflectedFormType> entry: Checker.formsDictionary.entrySet()) {
             //using a StringBuilder so that no entry is placed in the jvm string pool
             String key = new StringBuilder(entry.getKey()).reverse().toString();

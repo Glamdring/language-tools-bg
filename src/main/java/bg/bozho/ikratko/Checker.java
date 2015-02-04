@@ -18,9 +18,8 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
-import org.ardverk.collection.PatriciaTrie;
-import org.ardverk.collection.StringKeyAnalyzer;
-import org.ardverk.collection.Trie;
+import org.apache.commons.collections4.trie.PatriciaTrie;
+import org.apache.commons.collections4.Trie;
 import org.springframework.stereotype.Component;
 
 import com.google.common.collect.HashMultimap;
@@ -313,7 +312,7 @@ public class Checker {
             IOUtils.closeQuietly(is);
         }
 
-        dictionary = new PatriciaTrie<String, Set<String>>(StringKeyAnalyzer.CHAR);
+        dictionary = new PatriciaTrie<Set<String>>();
         for (String line : lines) {
             int paradigmIdx = line.indexOf("/");
             if (paradigmIdx != -1) {
@@ -328,7 +327,7 @@ public class Checker {
     }
 
     public static void loadFormsDictionary() {
-        formsDictionary = new PatriciaTrie<String, InflectedFormType>(StringKeyAnalyzer.CHAR);
+        formsDictionary = new PatriciaTrie<InflectedFormType>();
         for (Map.Entry<String, Set<String>> word : dictionary.entrySet()) {
             String baseForm = word.getKey();
             if (word.getValue().isEmpty()) {
