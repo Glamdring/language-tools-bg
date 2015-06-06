@@ -80,7 +80,6 @@ public class Checker {
             }
         }
 
-        System.out.println(StringUtils.join(words, "|"));
         List<Mistake> potentialMistakes = new ArrayList<Mistake>();
         List<Mistake> mistakes = new ArrayList<Mistake>();
         List<Mistake> otherMistakes = new ArrayList<Mistake>();
@@ -102,7 +101,7 @@ public class Checker {
                 }
             }
 
-            if (word.matches(POTENTIAL_MISTAKE_REGEX)) {
+            if (word.toLowerCase().matches(POTENTIAL_MISTAKE_REGEX)) {
                 Mistake pm = new Mistake();
                 pm.setWord(word.toLowerCase());
                 // set as next (and previous) only words that can be inflected. If the next word
@@ -142,7 +141,7 @@ public class Checker {
                 pm.setIndexInText(input.indexOf(word, lengthSum));
                 potentialMistakes.add(pm);
             } else if (spellcheckAll) {
-                if (formsDictionary.get(word) == null) {
+                if (formsDictionary.get(word.toLowerCase()) == null) {
                     otherMistakes.add(new Mistake(word));
                 }
             }
