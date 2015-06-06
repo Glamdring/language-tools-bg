@@ -1,8 +1,6 @@
 .classpath
 .project
-.settings/com.google.appengine.eclipse.core.prefs
-.settings/com.google.gdt.eclipse.core.prefs
-.settings/org.eclipse.jdt.core.prefs
-.settings/org.maven.ide.eclipse.prefs
+.settings/
 target/
 src/main/webapp/WEB-INF/lib/
+/bin
