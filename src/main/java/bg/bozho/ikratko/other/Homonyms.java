@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.collections4.trie.PatriciaTrie;
-import org.apache.commons.lang3.BooleanUtils;
 
 import bg.bozho.ikratko.Checker;
 import bg.bozho.ikratko.Checker.InflectedFormType;
@@ -89,26 +88,26 @@ public class Homonyms {
             
             if (baseForm != null && originalBase != null) {
                 if (sameRoot(baseForm, originalBase) // heuristic based on length
-                     || sameRoot(baseForm, originalBase, "н", "м", 1, 1, type, originalType, false, true) // "шлифовам" и "шлифован", напр.
-                     || sameRoot(baseForm, originalBase, "я", "ен", 1, 2, type, originalType, true, false) // червя и червен
-                     || sameRoot(baseForm, originalBase, "ващ", "вам", 1, 1, type, originalType, false, true)
-                     || sameRoot(baseForm, originalBase, "вяне", "вям", 2, 1, type, originalType, false, true)
-                     || sameRoot(baseForm, originalBase, "ан", "а", 1, 0, type, originalType, false, true)
-                     || sameRoot(baseForm, originalBase, "ян", "а", 1, 0, type, originalType, false, true)
-                     || sameRoot(baseForm, originalBase, "ение", "а", 4, 1, type, originalType, false, true)
-                     || sameRoot(baseForm, originalBase, "я", "ение", 1, 4, type, originalType, true, false)
-                     || sameRoot(baseForm, originalBase, "ат", "а", 1, 0, type, originalType, false, true)
-                     || sameRoot(baseForm, originalBase, "ая", "ан", 1, 1, type, originalType, true, false)
-                     || sameRoot(baseForm, originalBase, "я", "ене", 1, 3, type, originalType, true, false)
-                     || sameRoot(baseForm, originalBase, "я", "ан", 1, 2, type, originalType, true, false)
-                     || sameRoot(baseForm, originalBase, "ен", "а", 2, 1, type, originalType, false, true)
-                     || sameRoot(baseForm, originalBase, "я", "ея", 1, 2, type, originalType, true, true)
-                     || sameRoot(baseForm, originalBase, "я", "ещ", 1, 2, type, originalType, true, false)
-                     || sameRoot(baseForm, originalBase, "ящ", "я", 2, 1, type, originalType, false, true)
-                     || sameRoot(baseForm, originalBase, "ещ", "а", 2, 1, type, originalType, false, true)
-                     || sameRoot(baseForm, originalBase, "ин", "", 2, 0, type, originalType, false, false)
-                     || sameRoot(baseForm, originalBase, "ия", "ил", 2, 2, type, originalType, true, false)
-                     || sameRoot(baseForm, originalBase, "ям", "я", 1, 0, type, originalType, false, true)) {
+                     || ignore(baseForm, originalBase, "н", "м", 1, 1, type, originalType, false, true) // "шлифовам" и "шлифован", напр.
+                     || ignore(baseForm, originalBase, "я", "ен", 1, 2, type, originalType, true, false) // червя и червен
+                     || ignore(baseForm, originalBase, "ващ", "вам", 1, 1, type, originalType, false, true)
+                     || ignore(baseForm, originalBase, "вяне", "вям", 2, 1, type, originalType, false, true)
+                     || ignore(baseForm, originalBase, "ан", "а", 1, 0, type, originalType, false, true)
+                     || ignore(baseForm, originalBase, "ян", "а", 1, 0, type, originalType, false, true)
+                     || ignore(baseForm, originalBase, "ение", "а", 4, 1, type, originalType, false, true)
+                     || ignore(baseForm, originalBase, "я", "ение", 1, 4, type, originalType, true, false)
+                     || ignore(baseForm, originalBase, "ат", "а", 1, 0, type, originalType, false, true)
+                     || ignore(baseForm, originalBase, "ая", "ан", 1, 1, type, originalType, true, false)
+                     || ignore(baseForm, originalBase, "я", "ене", 1, 3, type, originalType, true, false)
+                     || ignore(baseForm, originalBase, "я", "ан", 1, 2, type, originalType, true, false)
+                     || ignore(baseForm, originalBase, "ен", "а", 2, 1, type, originalType, false, true)
+                     || ignore(baseForm, originalBase, "я", "ея", 1, 2, type, originalType, true, true)
+                     || ignore(baseForm, originalBase, "я", "ещ", 1, 2, type, originalType, true, false)
+                     || ignore(baseForm, originalBase, "ящ", "я", 2, 1, type, originalType, false, true)
+                     || ignore(baseForm, originalBase, "ещ", "а", 2, 1, type, originalType, false, true)
+                     || ignore(baseForm, originalBase, "ин", "", 2, 0, type, originalType, false, false)
+                     || ignore(baseForm, originalBase, "ия", "ил", 2, 2, type, originalType, true, false)
+                     || ignore(baseForm, originalBase, "ям", "я", 1, 0, type, originalType, false, true)) {
                     return;
                     // омоними в основна форма - няма нужда от всичките им форми
                 } else if (baseForm.equals(originalBase) && !word.equals(baseForm)) {
@@ -128,7 +127,7 @@ public class Homonyms {
                 && baseForm.substring(0, 5).equals(originalBase.substring(0, 5));
     }
     
-    private static boolean sameRoot(String baseForm, String originalBase,
+    private static boolean ignore(String baseForm, String originalBase,
             String suffixBase, String suffixOriginal,
             int comparisonCutBase, int comparisonCutOriginal, 
             InflectedFormType type, InflectedFormType originalType, 
