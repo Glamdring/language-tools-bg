@@ -57,10 +57,18 @@ public class Checker {
 
     @PostConstruct
     public synchronized void initialize() {
+        initialize(true);
+    }
+    
+    @PostConstruct
+    public synchronized void initialize(boolean cleanupDictionary) {
         if (!initialized) {
             load();
             loadInflections();
             loadFormsDictionary();
+            if (cleanupDictionary) {
+                dictionary = null; // eligible for GC. TODO can merge these two load methods, but it's easier not to, for now
+            }
             initialized = true;
         }
     }
@@ -370,11 +378,9 @@ public class Checker {
         for (String plForm : toBeFormsPl) {
             formsDictionary.put(plForm, InflectedFormType.PLURAL_FORM_VERB);
         }
-
-        dictionary = null; // eligible for GC. TODO can merge these two load methods, but it's easier not to, for now
     }
 
-    private static InflectedFormType getInflectedFormType(boolean specialCaseNoun, boolean verb, boolean plural) {
+    public static InflectedFormType getInflectedFormType(boolean specialCaseNoun, boolean verb, boolean plural) {
        if (specialCaseNoun && plural) {
            return InflectedFormType.PLURAL_FORM_SPECIAL;
        } else if (specialCaseNoun && !plural) {
