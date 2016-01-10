@@ -107,6 +107,8 @@ public class Homonyms {
                      || ignore(baseForm, originalBase, "ещ", "а", 2, 1, type, originalType, false, true)
                      || ignore(baseForm, originalBase, "ин", "", 2, 0, type, originalType, false, false)
                      || ignore(baseForm, originalBase, "ия", "ил", 2, 2, type, originalType, true, false)
+                     || ignore(baseForm, originalBase, "ия", "ит", 2, 2, type, originalType, true, false)
+                     || ignore(baseForm, originalBase, "ял", "я", 1, 0, type, originalType, false, true)
                      || ignore(baseForm, originalBase, "ям", "я", 1, 0, type, originalType, false, true)) {
                     return;
                     // омоними в основна форма - няма нужда от всичките им форми
