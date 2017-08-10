@@ -3,3 +3,4 @@
 .settings/
 target/
 src/main/webapp/WEB-INF/lib/
+/bin

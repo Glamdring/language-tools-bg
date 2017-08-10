@@ -18,9 +18,8 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
-import org.ardverk.collection.PatriciaTrie;
-import org.ardverk.collection.StringKeyAnalyzer;
-import org.ardverk.collection.Trie;
+import org.apache.commons.collections4.trie.PatriciaTrie;
+import org.apache.commons.collections4.Trie;
 import org.springframework.stereotype.Component;
 
 import com.google.common.collect.HashMultimap;
@@ -58,10 +57,18 @@ public class Checker {
 
     @PostConstruct
     public synchronized void initialize() {
+        initialize(true);
+    }
+    
+    @PostConstruct
+    public synchronized void initialize(boolean cleanupDictionary) {
         if (!initialized) {
             load();
             loadInflections();
             loadFormsDictionary();
+            if (cleanupDictionary) {
+                dictionary = null; // eligible for GC. TODO can merge these two load methods, but it's easier not to, for now
+            }
             initialized = true;
         }
     }
@@ -81,7 +88,6 @@ public class Checker {
             }
         }
 
-        System.out.println(StringUtils.join(words, "|"));
         List<Mistake> potentialMistakes = new ArrayList<Mistake>();
         List<Mistake> mistakes = new ArrayList<Mistake>();
         List<Mistake> otherMistakes = new ArrayList<Mistake>();
@@ -103,7 +109,7 @@ public class Checker {
                 }
             }
 
-            if (word.matches(POTENTIAL_MISTAKE_REGEX)) {
+            if (word.toLowerCase().matches(POTENTIAL_MISTAKE_REGEX)) {
                 Mistake pm = new Mistake();
                 pm.setWord(word.toLowerCase());
                 // set as next (and previous) only words that can be inflected. If the next word
@@ -143,7 +149,7 @@ public class Checker {
                 pm.setIndexInText(input.indexOf(word, lengthSum));
                 potentialMistakes.add(pm);
             } else if (spellcheckAll) {
-                if (formsDictionary.get(word) == null) {
+                if (formsDictionary.get(word.toLowerCase()) == null) {
                     otherMistakes.add(new Mistake(word));
                 }
             }
@@ -313,7 +319,7 @@ public class Checker {
             IOUtils.closeQuietly(is);
         }
 
-        dictionary = new PatriciaTrie<String, Set<String>>(StringKeyAnalyzer.CHAR);
+        dictionary = new PatriciaTrie<Set<String>>();
         for (String line : lines) {
             int paradigmIdx = line.indexOf("/");
             if (paradigmIdx != -1) {
@@ -328,7 +334,7 @@ public class Checker {
     }
 
     public static void loadFormsDictionary() {
-        formsDictionary = new PatriciaTrie<String, InflectedFormType>(StringKeyAnalyzer.CHAR);
+        formsDictionary = new PatriciaTrie<InflectedFormType>();
         for (Map.Entry<String, Set<String>> word : dictionary.entrySet()) {
             String baseForm = word.getKey();
             if (word.getValue().isEmpty()) {
@@ -372,11 +378,9 @@ public class Checker {
         for (String plForm : toBeFormsPl) {
             formsDictionary.put(plForm, InflectedFormType.PLURAL_FORM_VERB);
         }
-
-        dictionary = null; // eligible for GC. TODO can merge these two load methods, but it's easier not to, for now
     }
 
-    private static InflectedFormType getInflectedFormType(boolean specialCaseNoun, boolean verb, boolean plural) {
+    public static InflectedFormType getInflectedFormType(boolean specialCaseNoun, boolean verb, boolean plural) {
        if (specialCaseNoun && plural) {
            return InflectedFormType.PLURAL_FORM_SPECIAL;
        } else if (specialCaseNoun && !plural) {

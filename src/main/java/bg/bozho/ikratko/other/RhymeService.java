@@ -11,9 +11,8 @@ import java.util.SortedMap;
 import javax.annotation.PostConstruct;
 
 import org.apache.commons.lang3.StringUtils;
-import org.ardverk.collection.PatriciaTrie;
-import org.ardverk.collection.StringKeyAnalyzer;
-import org.ardverk.collection.Trie;
+import org.apache.commons.collections4.trie.PatriciaTrie;
+import org.apache.commons.collections4.Trie;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +32,7 @@ public class RhymeService {
 
     @PostConstruct
     public void init() {
-        reverse = new PatriciaTrie<String, List<String>>(StringKeyAnalyzer.CHAR);
+        reverse = new PatriciaTrie<>();
         for (Entry<String, Checker.InflectedFormType> entry: Checker.formsDictionary.entrySet()) {
             //using a StringBuilder so that no entry is placed in the jvm string pool
             String key = new StringBuilder(entry.getKey()).reverse().substring(0, Math.min(5, entry.getKey().length()));
