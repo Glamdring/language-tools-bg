@@ -63,7 +63,11 @@ public class RhymeService {
     }
 
     public static void main(String[] args) {
-        System.out.println(new RhymeService().getSyllables("лайно"));
+        Checker checker = new Checker();
+        checker.initialize();
+        RhymeService service = new RhymeService();
+        service.init();
+        System.out.println(service.getRhymes("асти", 0));
     }
     private int getSyllables(String word) {
         int syllables = 0;
