@@ -60,7 +60,6 @@ public class Checker {
         initialize(true);
     }
     
-    @PostConstruct
     public synchronized void initialize(boolean cleanupDictionary) {
         if (!initialized) {
             load();

@@ -24,9 +24,10 @@ public class Anagram {
         char[] chars = word.toLowerCase().toCharArray();
         List<Character> list = Arrays.asList(ArrayUtils.toObject(chars));
         PermutationGenerator<Character> gen = new PermutationGenerator<Character>(list);
+		StringBuilder sb = new StringBuilder();
         while (gen.hasNext()) {
             List<Character> anagramList = gen.next();
-            StringBuilder sb = new StringBuilder();
+            
             for (Character ch : anagramList) {
                 sb.append(ch);
             }
@@ -34,6 +35,7 @@ public class Anagram {
             if (Checker.formsDictionary.containsKey(anagram)) {
                 anagrams.add(anagram);
             }
+			sb.setLength(0);
         }
         anagrams.remove(word.toLowerCase()); // don't return the input word
         return anagrams;
