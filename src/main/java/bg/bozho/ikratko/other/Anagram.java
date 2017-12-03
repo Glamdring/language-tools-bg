@@ -1,19 +1,18 @@
 package bg.bozho.ikratko.other;
 
-import groovy.util.PermutationGenerator;
-
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.collections4.iterators.PermutationIterator;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.stereotype.Service;
 
-import bg.bozho.ikratko.Checker;
-
 import com.google.common.collect.Maps;
+
+import bg.bozho.ikratko.Checker;
 
 @Service
 public class Anagram {
@@ -23,7 +22,7 @@ public class Anagram {
         Set<String> anagrams = new HashSet<String>();
         char[] chars = word.toLowerCase().toCharArray();
         List<Character> list = Arrays.asList(ArrayUtils.toObject(chars));
-        PermutationGenerator<Character> gen = new PermutationGenerator<Character>(list);
+        PermutationIterator<Character> gen = new PermutationIterator<Character>(list);
 		StringBuilder sb = new StringBuilder();
         while (gen.hasNext()) {
             List<Character> anagramList = gen.next();
